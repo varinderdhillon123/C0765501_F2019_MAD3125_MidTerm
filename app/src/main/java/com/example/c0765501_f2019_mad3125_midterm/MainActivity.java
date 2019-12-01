@@ -28,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText fname;
     private EditText lname;
     private EditText Age;
+    //private EditText totalIncome;
     private RadioGroup rgGender;
     private RadioButton rbMale;
     private RadioButton rbFMale;
     private RadioButton rbOthers;
+
     String Radio = "";
 
 
@@ -47,10 +49,12 @@ public class MainActivity extends AppCompatActivity {
         sin = findViewById(R.id.sin_no);
         lname = findViewById(R.id.txtLName);
         Age = findViewById(R.id.txtAge);
+      //  totalIncome = findViewById(R.id.txttotal_inc);
         rgGender = findViewById(R.id.rgGENDER);
         rbMale = findViewById(R.id.rbMale);
         rbFMale = findViewById(R.id.rbFemale);
         rbOthers = findViewById(R.id.rbOthers);
+
         RadioAction();
         FinalResult();
 
@@ -84,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            public void ResultActivity(View v) {
-
-                startActivity(new Intent(MainActivity.this, ResultActivity.class));
-
-
-            }
+//            public void ResultActivity(View v) {
+//
+//                startActivity(new Intent(MainActivity.this, ResultActivity.class));
+//
+//
+//            }
         });
     }
 
@@ -135,7 +139,8 @@ public class MainActivity extends AppCompatActivity {
             {
 
 
-                CRACustomer cra = new CRACustomer(sin.getText().toString(),Age.getText().toString(), fname.getText().toString(), lname.getText().toString(),rgGender.toString());
+                CRACustomer cra = new CRACustomer(sin.getText().toString(),Age.getText().toString(),fname.getText().toString(), lname.getText().toString(),
+                        rgGender.toString());
 
                 Intent mIntent = new Intent(MainActivity.this, ResultActivity.class);
                 mIntent.putExtra("CRACustomer", cra);
