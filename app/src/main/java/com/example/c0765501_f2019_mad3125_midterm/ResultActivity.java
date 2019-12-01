@@ -1,5 +1,6 @@
 package com.example.c0765501_f2019_mad3125_midterm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,20 +28,22 @@ public class ResultActivity extends AppCompatActivity {
         calc_fullname = findViewById(R.id.calFullName);
         calc_sin = findViewById(R.id.caLSin_no);
         calc_age = findViewById(R.id.calAge);
-      //  calc_total = findViewById(R.id.txttotal_inc);
+        //  calc_total = findViewById(R.id.txttotal_inc);
 
         calc_gender = findViewById(R.id.calGender);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        backButton();
+        // backButton();
 
         Intent intent = getIntent();
         CRACustomer calCRA = intent.getParcelableExtra("CRACustomer");
 
-        calc_sin.setText("SIN=" +calCRA.getSin_no());
-        calc_fullname.setText("FULLNAME=" +calCRA.getFullName());
-        calc_age.setText("AGE=" +calCRA.getAge());
-     //   calc_total.setText("TOTAL=" +calCRA.getTotal());
+        calc_sin.setText("SIN=" + calCRA.getSin_no());
+        calc_fullname.setText("FULLNAME=" + calCRA.getFullName());
+        calc_age.setText("AGE=" + calCRA.getAge());
+        //   calc_total.setText("TOTAL=" +calCRA.getTotal());
 
 
         calc_gender.setText("GENDER=" + calCRA.getGender());
@@ -48,31 +51,18 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-    public void backButton()
-    {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-
-            actionBar.setDisplayHomeAsUpEnabled(true);
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            this.finish();
         }
-
-    }
-
-    public boolean onOptionstemsSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-
         return super.onOptionsItemSelected(item);
-    }
 
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        return true;
+
     }
 
 }
+
+
+
