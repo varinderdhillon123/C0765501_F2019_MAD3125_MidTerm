@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:inputType="textPersonName"
+                android:text="INCOME TX CALCULATOR"
+                android:textAlignment="center"
+                android:textColor="#0B7EB8"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/caLSin_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="SIN NUMBER" />
+
+            <TextView
+                android:id="@+id/calFullName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:hint="FULL NAME" />
+
+            <TextView
+                android:id="@+id/calAge"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:hint="AGE" />
+
+            <TextView
+                android:id="@+id/calGender"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:hint="GENDER" />
+
+            <TextView
+                android:id="@+id/calFillingDate"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="TAX FILLING DATE"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/calGrossIncome"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:hint="GROSS INCOME"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/calFederalTax"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="FEDERAL TAX"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/calProvincialTax"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="PROVINCIAL TAX"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/calCPP"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="CPP"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/calEmp_Ins"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="EMPLOYMENT INSURANCE"
+                android:inputType="numberDecimal" />
+
+
+            <TextView
+                android:id="@+id/calRRSPContrI"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="RRSP CONTRIBUTED"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/calCarryForwardRRSP"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="CARRY FORWARD RRSP"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/calTotalTaxableIncome"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="TOTAL TAXABLE INCOME"
+                android:inputType="numberDecimal" />
+
+
+            <TextView
+                android:id="@+id/calTotalTaxPayed"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="TOTAL TAX PAYED"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
