@@ -11,6 +11,7 @@ public class CRACustomer implements Parcelable
     String First,Last;
     String FullName;
     String Gender;
+    String Total;
 
 
     public String getGender()
@@ -23,11 +24,11 @@ public class CRACustomer implements Parcelable
         this.Gender = Gender;
     }
 
-    public CRACustomer(String sin_no, String age, String first,String last, String gender)
+    public CRACustomer(String sin_no, String age, String first,String last, String gender, String Total)
     {
         this.sin_no = sin_no;
         this.age = age;
-       // this.Total = Total;
+        this.Total = Total;
         this.First = first;
         this.Last = last;
         this.Gender = gender;
@@ -80,15 +81,15 @@ public class CRACustomer implements Parcelable
         this.age = age;
     }
 
-   // public String getTotal()
-    // {
-//        return Total;
-//    }
+    public String getTotal()
+     {
+        return Total;
+    }
 
-//    public void setTotal(String Total)
-//    {
-//        this.Total = Total;
-//    }
+    public void setTotal(String Total)
+    {
+        this.Total = Total;
+    }
 
     public String getFullName()
     {
@@ -121,7 +122,7 @@ public class CRACustomer implements Parcelable
         dest.writeString(FullName);
         dest.writeString(sin_no);
         dest.writeString(age);
-       // dest.writeString(Total);
+        dest.writeString(Total);
 
         dest.writeString(Gender);
 
@@ -135,7 +136,7 @@ public class CRACustomer implements Parcelable
         FullName = parcel.readString();
         sin_no = parcel.readString();
         age = parcel.readString();
-     //   Total = parcel.readString();
+        Total = parcel.readString();
         Gender = parcel.readString();
 
     }

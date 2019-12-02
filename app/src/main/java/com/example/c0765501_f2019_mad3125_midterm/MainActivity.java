@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText fname;
     private EditText lname;
     private EditText Age;
-    //private EditText totalIncome;
+    private EditText totalIncome;
     private RadioGroup rgGender;
     private RadioButton rbMale;
     private RadioButton rbFMale;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         sin = findViewById(R.id.sin_no);
         lname = findViewById(R.id.txtLName);
         Age = findViewById(R.id.txtAge);
-      //  totalIncome = findViewById(R.id.txttotal_inc);
+        totalIncome = findViewById(R.id.txttotal_inc);
         rgGender = findViewById(R.id.rgGENDER);
         rbMale = findViewById(R.id.rbMale);
         rbFMale = findViewById(R.id.rbFemale);
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 CRACustomer cra = new CRACustomer(sin.getText().toString(),Age.getText().toString(),fname.getText().toString(), lname.getText().toString(),
-                        rgGender.toString());
+                        rgGender.toString(), totalIncome.getText().toString());
 
                 Intent mIntent = new Intent(MainActivity.this, ResultActivity.class);
                 mIntent.putExtra("CRACustomer", cra);
