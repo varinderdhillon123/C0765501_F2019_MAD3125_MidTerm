@@ -58,10 +58,11 @@ public class ResultActivity extends AppCompatActivity {
         calc_RRSP.setText("RRSP Contributed: \t" + cust.getRrspContri());
 
         // calculate  cpp
-        if(cust.getGrossIncome() > 57000.00){
-            CPP = (57000.00 * (5.10 / 100));
+
+        if(cust.getGrossIncome() > 57400.00){
+            CPP = (57400.00 * 0.051);
         } else {
-            CPP = (cust.getGrossIncome() * (5.10 / 100));
+            CPP = (cust.getGrossIncome() * 0.051);
         }
         calc_cpp.setText("CPP COntribution in Year:\t" + CPP);
         // calculate employement insurance
