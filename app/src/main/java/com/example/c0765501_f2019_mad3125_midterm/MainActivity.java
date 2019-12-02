@@ -1,6 +1,5 @@
 package com.example.c0765501_f2019_mad3125_midterm;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +7,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,8 +15,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.c0765501_f2019_mad3125_midterm.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView RRSPCont;
     private TextView Fullname;
     private TextView txtgender;
-    private TextView filingdate;
     private RadioGroup rgGENDER;
     private RadioButton rbgender;
     private RadioButton rbMALE;
@@ -54,16 +48,15 @@ public class MainActivity extends AppCompatActivity {
         sin_no = findViewById(R.id.sin_no);
         first = findViewById(R.id.txtFName);
         last = findViewById(R.id.txtLName);
-        txtgender = findViewById(R.id.txtGender);
+        txtgender = findViewById(R.id.txtgender);
         rgGENDER = findViewById(R.id.rgGENDER);
         rbMALE = findViewById(R.id.rbMale);
         rbFEMALE = findViewById(R.id.rbFemale);
         rbOTHER = findViewById(R.id.rbOthers);
-        filingdate = findViewById(R.id.txtFillingDate);
         Total = findViewById(R.id.txttotal_inc);
         button = findViewById(R.id.btn_calc);
         txtDOB = findViewById(R.id.txtDOB);
-        RRSPCont = findViewById(R.id.editRRSPContrI);
+        RRSPCont = findViewById(R.id.edtRRSP);
 
 
 
@@ -125,33 +118,22 @@ public class MainActivity extends AppCompatActivity {
         java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         txtDOB.setText(sdf.format(calendar.getTime()));
     }
-    private  void curr_date(){
 
-
-        String todayDateFormat = "EEE, MMM d, yyyy";
-        java.text.SimpleDateFormat td = new SimpleDateFormat(todayDateFormat, Locale.CANADA);
-        filingdate.setText(td.format(calendar.getTime()));
-
-    }
-    public  void checkedButton(View view){
+    public  void checkedButton(View view) {
         int radioId = rgGENDER.getCheckedRadioButtonId();
         rgGENDER.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == R.id.rbMale){
+                if (checkedId == R.id.rbMale) {
                     Radio = rbMALE.getText().toString();
-                }else if(checkedId == R.id.rbFemale){
+                } else if (checkedId == R.id.rbFemale) {
                     Radio = rbFEMALE.getText().toString();
-                }else {
+                } else {
                     Radio = rbOTHER.getText().toString();
                 }
             }
         });
-        rbgender = findViewById(radioId);
-        txtgender.setText(Radio);
-        Toast.makeText(this, "Gender:" + rbgender.getText(), Toast.LENGTH_SHORT).show();
     }
-
 
 }
 
