@@ -4,36 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
-    CRACustomer cra;
-    TextView sin, First, txtgender, Total,
-            filingdate, Fed_tax, Prov_tax, calc_Cpp,
-            calc_empIns, calc_RRSP, calc_RRSP_fwd,
-            calc_TotaltaxInc, calc_totalpay;
-    double CPP = 0, EI = 0;  double RRSP = 0, RRSPCarry_FWD = 0, Tot_taxInc, fed_Tax,
-            prov_Tax, Tot_Tax;
+    CRACustomer cust;
+    TextView sin, fullName, gender, calc_total,
+            calc_taxFilingDate, calc_federalTax, calc_provincialTax, calc_cpp,
+            calc_EmpIns, calc_RRSP, calc_CfRRSP,
+            calc_TaxableIncome, calc_TaxPaid;
+    double CPP = 0, ei = 0;  double RRSP = 0, RRSPCRY_FWD = 0, TAX_INCOME, FTAX,
+            PTAX, TOT_TAX;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        sin = findViewById(R.id.sin_no);
-        First = findViewById(R.id.txtFullName);
-        txtgender =   findViewById(R.id.txtGender);
-        Total = findViewById(R.id.txttotal_inc);
-        calc_RRSP = findViewById(R.id.editRRSPContrI);
-        calc_Cpp = findViewById(R.id.calCPP);
-        calc_empIns = findViewById(R.id.calEmp_Ins);
-        calc_RRSP_fwd = findViewById(R.id.calCarryForwardRRSP);
-        calc_TotaltaxInc = findViewById(R.id.calTotalTaxableIncome);
-        Fed_tax = findViewById(R.id.FederalTax);
-        Prov_tax = findViewById(R.id.calProvincialTax);
-        calc_totalpay = findViewById(R.id.calTotalTaxPayed);
+        sin = findViewById(R.id.txtsin);
+        fullName = findViewById(R.id.txtfullName);
+        gender =   findViewById(R.id.txtgender);
+        calc_total = findViewById(R.id.txtgrossIncome);
+        calc_RRSP = findViewById(R.id.txtRRSPCont);
+        calc_cpp = findViewById(R.id.txtcpp);
+        calc_EmpIns = findViewById(R.id.txtempIns);
+        calc_CfRRSP = findViewById(R.id.txtRRSPFWD);
+        calc_TaxableIncome = findViewById(R.id.txttaxableInc);
+        calc_federalTax = findViewById(R.id.txtfederalTax);
+        calc_provincialTax = findViewById(R.id.txtprovincialTax);
+        calc_TaxPaid = findViewById(R.id.txttaxPayed);
 
         //Back Button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,50 +39,50 @@ public class ResultActivity extends AppCompatActivity {
 
         //collecting intent
         Intent mIntent = getIntent();
-        CRACustomer customer = mIntent.getParcelableExtra("CRACustomer");
+        CRACustomer cust = mIntent.getParcelableExtra("CRACustomer");
 
-        sin.setText(" SIN: \t" + customer.getSinNumber());
-        First.setText(" FULL NAME: \t" + customer.getFullName());
-        txtgender.setText(" GENDER: \t" + customer.getGender());
-        Total.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
-        calc_RRSP.setText("RRSP Contributed: \t" + customer.getRrspContri());
+        sin.setText(" SIN: \t" + cust.getSinNumber());
+        fullName.setText(" FULL NAME: \t" + cust.getFullName());
+        gender.setText(" GENDER: \t" + cust.getGender());
+        calc_total.setText(" GROSS INCOME: \t" + cust.getGrossIncome());
+        calc_RRSP.setText("RRSP Contributed: \t" + cust.getRrspContri());
 
         // calculate  cpp
-        if(customer.getGrossIncome() > 57000.00){
+        if(cust.getGrossIncome() > 57000.00){
             CPP = (57000.00 * (5.10 / 100));
         } else {
-            CPP = (customer.getGrossIncome() * (5.10 / 100));
+            CPP = (cust.getGrossIncome() * (5.10 / 100));
         }
-        calc_Cpp.setText("CPP COntribution in Year:\t" + CPP);
+        calc_cpp.setText("CPP COntribution in Year:\t" + CPP);
         // calculate employement insurance
-        if(customer.getGrossIncome() > 53100){
-            EI = (53100 * (1.62 / 100));
+        if(cust.getGrossIncome() > 53100){
+            ei = (53100 * (1.62 / 100));
         }else{
-            EI = (customer.getGrossIncome() * (1.62/100));
+            ei = (cust.getGrossIncome() * (1.62/100));
         }
-        calc_empIns.setText("Employeement Insurance: \t" + EI);
+        calc_EmpIns.setText("Employeement Insurance: \t" + ei);
         // calculate RRSP
-        RRSP = customer.getRrspContri();
-        double maxRRSP = (customer.getGrossIncome() * (18 /100));
-        if(customer.getRrspContri() > maxRRSP ){
-            RRSPCarry_FWD = RRSP - maxRRSP;
+        RRSP = cust.getRrspContri();
+        double maxRRSP = (cust.getGrossIncome() * (18 /100));
+        if(cust.getRrspContri() > maxRRSP ){
+            RRSPCRY_FWD = RRSP - maxRRSP;
         }else{
             RRSP = maxRRSP;
         }
-        calc_RRSP_fwd.setText("RRSP Carry forward: \t"+ RRSPCarry_FWD);
+        calc_CfRRSP.setText("RRSP Carry forward: \t"+ RRSPCRY_FWD);
         //taxable income
-        Tot_taxInc = (CPP - EI - RRSP);
+        TAX_INCOME = (CPP - ei - RRSP);
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
-        calc_TotaltaxInc.setText("Taxable income:\t" + (double) Tot_taxInc);
+        calc_TaxableIncome.setText("Taxable income:\t" + (double) TAX_INCOME);
         //federal tax
         double calFederal = calcFedralTax();
-        Fed_tax.setText("Federal Tax: \t" + calFederal);
+        calc_federalTax.setText("Federal Tax: \t" + calFederal);
         // Provincial Tax
         double calProvincial = calcProvincialTax();
-        Prov_tax.setText("Provincial Tax:\t" + calProvincial);
+        calc_provincialTax.setText("Provincial Tax:\t" + calProvincial);
         // total tax paid
         double taxpaid = calTaxPaid();
-        calc_totalpay.setText("Total tax Paid:\t" + taxpaid);
+        calc_TaxPaid.setText("Total tax Paid:\t" + taxpaid);
 
 
 
@@ -107,32 +105,30 @@ public class ResultActivity extends AppCompatActivity {
     }
     public double calcCpp(){
         // calculate  cpp
-        if(cra.getGrossIncome() > 57000.00){
+        if(cust.getGrossIncome() > 57000.00){
             CPP = (57000.00 * (5.10 / 100));
         } else {
-            CPP = (cra.getGrossIncome() * (5.10 / 100));
+            CPP = (cust.getGrossIncome() * (5.10 / 100));
         }
         return CPP;
     }
     public double calcFedralTax(){
         //calculate federal tax
 
-        if(Tot_taxInc < 12069.00){
-            fed_Tax = 0;
-
+        if(TAX_INCOME < 12069.00){
+            FTAX = 0;
+            //taxableIncome = taxableIncome - 12069.00;
         }else{
-            fed_Tax = Tot_taxInc - 1;
+            FTAX = TAX_INCOME - 1;
         }
-        return fed_Tax;
+        return FTAX;
     }
     public  double calcProvincialTax(){
         //calculate provincial tax
-        return prov_Tax;
+        return PTAX;
     }
     public  double calTaxPaid(){
-        return Tot_Tax;
+        return TOT_TAX;
     }
-
-
 
 }
