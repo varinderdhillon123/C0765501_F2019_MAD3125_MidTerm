@@ -4,92 +4,95 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.Date;
 
 public class CRACustomer implements Parcelable {
-    String sinNumber, firstName, lastName, fullName, gender;
-    Date birthDate, filingDate;
-    int age;
-    double grossIncome, federalTax, provicialTax, empInsurance;
-    double rrspContri, rrspCarryForward, taxableIncome, taxPaid;
 
-    public CRACustomer(String sinNumber, String firstName,
-                       String lastName, String gender, double grossIncome, double rrspContri) {
-        this.sinNumber = sinNumber;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.fullName = fullName;
-        this.gender = gender;
-        this.grossIncome = grossIncome;
-        this.rrspContri = rrspContri;
+    String sno, fName, lName, Fullnm, Gender;
+    Date dob, FilingDate;
+    int Age;
+    double Total, Fedtax, Provtax, EmpIns;
+    double RRSPcont, RRSPFwd, taxable_inc, paid_tax;
+
+    public CRACustomer(String sno, String fName,
+                       String lName, String Gender, double Total, double RRSPcont) {
+        this.sno = sno;
+        this.fName = fName;
+        this.lName = lName;
+        this.Fullnm = Fullnm ;
+        this.Gender = Gender;
+        this.Total = Total;
+        this.RRSPcont = RRSPcont;
     }
 
 
     public String getSinNumber() {
-        return sinNumber;
+        return sno;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstName()
+    {
+        return fName;
     }
 
     public String getLastName() {
-        return lastName;
+        return lName;
     }
 
     public String getFullName() {
-        
-        return lastName.toUpperCase() + ", " +
-                firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+
+        return lName.toUpperCase() + ", " +
+                fName.substring(0, 1).toUpperCase() + fName.substring(1);
     }
 
     public String getGender() {
-        return gender;
+        return Gender;
     }
 
     public Date getBirthDate() {
-        return birthDate;
+        return dob;
     }
 
     public int getAge() {
-        return age;
+        return Age;
     }
 
     public Date getFilingDate() {
-        return filingDate;
+        return FilingDate;
     }
 
     public double getGrossIncome() {
-        return grossIncome;
+        return Total;
     }
 
     public double getEmpInsurance() {
-        return empInsurance;
+        return EmpIns;
     }
 
     public double getRrspContri() {
-        return rrspContri;
+        return RRSPcont;
     }
 
     public double getRrspCarryForward() {
-        return rrspCarryForward;
+        return RRSPFwd;
     }
 
     public double getTaxableIncome() {
-        return taxableIncome;
+        return taxable_inc;
     }
 
     public double getTaxPaid() {
-        return taxPaid;
+        return paid_tax;
     }
 
     public double getFederalTax() {
-        return federalTax;
+        return Fedtax;
     }
 
     public double getProvicialTax() {
-        return provicialTax;
+        return Provtax;
     }
 
     @Override
@@ -99,26 +102,27 @@ public class CRACustomer implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(sinNumber);
-        dest.writeString(firstName);
-        dest.writeString(lastName);
-        dest.writeString(fullName);
-        dest.writeString(gender);
-        dest.writeDouble(grossIncome);
-        dest.writeDouble(rrspContri);
+        dest.writeString(sno);
+        dest.writeString(fName);
+        dest.writeString(lName);
+        dest.writeString(Fullnm);
+        dest.writeString(Gender);
+        dest.writeDouble(Total);
+        dest.writeDouble(RRSPcont);
 
     }
 
     public CRACustomer(Parcel parcel) {
-        sinNumber = parcel.readString();
-        firstName = parcel.readString();
-        lastName = parcel.readString();
-        fullName = parcel.readString();
-        gender = parcel.readString();
-        grossIncome = parcel.readDouble();
-        rrspContri = parcel.readDouble();
+        sno = parcel.readString();
+        fName = parcel.readString();
+        lName = parcel.readString();
+        Fullnm = parcel.readString();
+        Gender = parcel.readString();
+        Total = parcel.readDouble();
+        RRSPcont = parcel.readDouble();
 
     }
+
 
     public static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
         @Override
@@ -132,3 +136,4 @@ public class CRACustomer implements Parcelable {
         }
     };
 }
+
