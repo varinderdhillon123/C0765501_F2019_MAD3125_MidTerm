@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">C0765501_F2019_MAD3125_MidTerm</string>
     <string name="calculate_tax">CALCULATE TAX</string>
+    <string name="female">FEMALE</string>
+    <string name="others">OTHERS</string>
+    <string name="male">MALE</string>
 
 </resources>
