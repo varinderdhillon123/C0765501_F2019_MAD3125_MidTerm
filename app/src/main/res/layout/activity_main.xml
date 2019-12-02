@@ -54,15 +54,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/txtFName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Person FIRST NAME"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+
 
             <EditText
                 android:id="@+id/txtLName"
@@ -71,6 +63,15 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Person LAST NAME"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/txtFName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Person FIRST NAME"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
