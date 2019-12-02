@@ -137,14 +137,71 @@ public class ResultActivity extends AppCompatActivity {
                FTAX = (tax * 0.15);
              tax = tax -35561;
         }
-        return FTAX;
+        if(tax >= 47630.01)
+        {
+            FTAX = (tax * 0.205);
+            tax = tax -47628.99;
+        }
+        if(tax >= 95259.01)
+        {
+            FTAX = (tax * 0.26);
+            tax = tax -52407.99;
+        }
+        if(tax >= 147667.01)
+        {
+            FTAX = (tax * 0.29);
+            tax = tax -62703.99;
+        }
+        if(tax >= 210371.01)
+        {
+            FTAX = (tax * 0.33);
+//            tax = tax -FTAX;
+        }
+       return FTAX;
     }
-    public  double calcProvincialTax(){
+    public  double calcProvincialTax() {
         //calculate provincial tax
+        double tax = TAX_INCOME;
+
+        if (tax <= 10582.00)
+        {
+            PTAX = 0;
+        tax = TAX_INCOME - 10582.00;
+    }
+
+    if (tax >= 10582.01)
+    {
+        PTAX =(tax * (5.05 * 100));
+        tax = tax - 33323.99;
+    }
+
+        if (tax >= 43906.01)
+        {
+            PTAX =(tax * (9.15 * 100));
+            tax = tax - 43906.99;
+        }
+
+        if (tax >= 87813.01)
+        {
+            PTAX =(tax * (11.16 * 100));
+            tax = tax - 62187.99;
+        }
+        if (tax >= 150000.01)
+        {
+            PTAX =(tax * (12.16 * 100));
+            tax = tax - 69999.99;
+        }
+
+
+        if(tax >= 220000.01){
+        PTAX = (tax * 0.1316);//13.16%
+
+    }
+
         return PTAX;
     }
     public  double calTaxPaid(){
-        return TOT_TAX;
+        return TOT_TAX = FTAX + PTAX;
     }
 
 }
