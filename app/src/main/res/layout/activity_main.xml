@@ -7,17 +7,17 @@
     android:background="#B3E5FC"
     tools:context=".MainActivity">
 
+
     <ScrollView
-        android:layout_width="433dp"
-        android:layout_height="792dp"
+        android:layout_width="409dp"
+        android:layout_height="660dp"
         android:background="#00706161"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
+        app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,6 +51,7 @@
                 android:layout_marginBottom="8dp"
                 android:hint="Person SIN NUMBER"
                 android:inputType="number"
+                android:textAllCaps="false"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
