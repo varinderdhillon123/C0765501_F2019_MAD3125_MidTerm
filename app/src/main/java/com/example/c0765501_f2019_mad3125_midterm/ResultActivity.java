@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.zip.DeflaterOutputStream;
+
 public class ResultActivity extends AppCompatActivity {
     CRACustomer cust;
     TextView sin;
@@ -51,40 +53,41 @@ public class ResultActivity extends AppCompatActivity {
         Intent mIntent = getIntent();
         CRACustomer cust = mIntent.getParcelableExtra("CRACustomer");
 
-        sin.setText(" SIN: \t" + cust.getSinNumber());
-        fullName.setText(" FULL NAME: \t" + cust.getFullName());
-        gender.setText(" GENDER: \t" + cust.getGender());
-        calc_total.setText(" GROSS INCOME: \t" + cust.getGrossIncome());
-        calc_RRSP.setText("RRSP Contributed: \t" + cust.getRrspContri());
+        sin.setText(" SIN= \t" + cust.getSinNumber());
+        fullName.setText(" FULL NAME= \t" + cust.getFullName());
+        gender.setText(" GENDER= \t" + cust.getGender());
+        calc_total.setText(" total income= \t" + cust.getGrossIncome());
+        calc_RRSP.setText("RRSP Contribution= \t" + cust.getRrspContri());
 
         // calculate  cpp
-
-        if(cust.getGrossIncome() > 57400.00){
+        double Gross_inc = cust.getGrossIncome();
+        if(Gross_inc > 57400.00){
             CPP = (57400.00 * 0.051);
         } else {
-            CPP = (cust.getGrossIncome() * 0.051);
+            CPP = (Gross_inc * 0.051);
         }
-        calc_cpp.setText("CPP COntribution in Year:\t" + CPP);
+        calc_cpp.setText("CPP Contribution=\t" + CPP);
         // calculate employement insurance
         if(cust.getGrossIncome() > 53100){
             ei = (53100 * (1.62 / 100));
         }else{
             ei = (cust.getGrossIncome() * (1.62/100));
         }
-        calc_EmpIns.setText("Employeement Insurance: \t" + ei);
+        calc_EmpIns.setText("Employeement Insurance= \t" + ei);
         // calculate RRSP
         RRSP = cust.getRrspContri();
         double maxRRSP = (cust.getGrossIncome() * (18 /100));
-        if(cust.getRrspContri() > maxRRSP ){
+        if(RRSP > maxRRSP ){
             RRSPCRY_FWD = RRSP - maxRRSP;
-        }else{
             RRSP = maxRRSP;
+        }else{
+            RRSP = RRSP;
         }
-        calc_CfRRSP.setText("RRSP Carry forward: \t"+ RRSPCRY_FWD);
+        calc_CfRRSP.setText("RRSP Carry forward= \t"+ RRSPCRY_FWD);
         //taxable income
         TAX_INCOME = (CPP - ei - RRSP);
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
-        calc_TaxableIncome.setText("Taxable income:\t" + (double) TAX_INCOME);
+        calc_TaxableIncome.setText("Taxable income=\t" + (double) TAX_INCOME);
         //federal tax
         double calFederal = calcFedralTax();
         calc_federalTax.setText("Federal Tax: \t" + calFederal);
