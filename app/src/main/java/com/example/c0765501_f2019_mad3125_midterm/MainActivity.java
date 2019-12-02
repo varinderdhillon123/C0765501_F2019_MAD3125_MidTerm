@@ -1,10 +1,15 @@
 package com.example.c0765501_f2019_mad3125_midterm;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,142 +19,139 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.c0765501_f2019_mad3125_midterm.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
+    CRACustomer cra;
     final Calendar calendar = Calendar.getInstance();
-    TextView txtDate;
+
+    private EditText sin_no;
+    private EditText first;
+    private EditText last;
+    private EditText Total;
+    private TextView RRSPCont;
+    private TextView Fullname;
+    private TextView txtgender;
+    private TextView filingdate;
+    private RadioGroup rgGENDER;
+    private RadioButton rbgender;
+    private RadioButton rbMALE;
+    private RadioButton rbFEMALE;
+    private RadioButton rbOTHER;
     private Button button;
+    private String Radio = "";
+    private TextView txtDOB ;
 
-    private EditText sin;
-    private EditText fname;
-    private EditText lname;
-    private EditText Age;
-    private EditText totalIncome;
-    private RadioGroup rgGender;
-    private RadioButton rbMale;
-    private RadioButton rbFMale;
-    private RadioButton rbOthers;
-
-    String Radio = "";
-
-
-
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sin_no = findViewById(R.id.sin_no);
+        first = findViewById(R.id.txtFName);
+        last = findViewById(R.id.txtLName);
+        txtgender = findViewById(R.id.txtGender);
+        rgGENDER = findViewById(R.id.rgGENDER);
+        rbMALE = findViewById(R.id.rbMale);
+        rbFEMALE = findViewById(R.id.rbFemale);
+        rbOTHER = findViewById(R.id.rbOthers);
+        filingdate = findViewById(R.id.txtFillingDate);
+        Total = findViewById(R.id.txttotal_inc);
         button = findViewById(R.id.btn_calc);
+        txtDOB = findViewById(R.id.txtDOB);
+        RRSPCont = findViewById(R.id.editRRSPContrI);
 
 
-        fname = findViewById(R.id.txtFName);
-        sin = findViewById(R.id.sin_no);
-        lname = findViewById(R.id.txtLName);
-        Age = findViewById(R.id.txtAge);
-        totalIncome = findViewById(R.id.txttotal_inc);
-        rgGender = findViewById(R.id.rgGENDER);
-        rbMale = findViewById(R.id.rbMale);
-        rbFMale = findViewById(R.id.rbFemale);
-        rbOthers = findViewById(R.id.rbOthers);
 
-        RadioAction();
-        FinalResult();
 
-        txtDate = findViewById(R.id.txtDOB);
-        txtDate.setOnClickListener(new View.OnClickListener() {
 
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                dateFormat();
+            }
+        };
+        txtDOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(MainActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+                // TODO Auto-generated method stub
+                new DatePickerDialog(MainActivity.this, date, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
-
-            final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                      int dayOfMonth) {
-                    // TODO Auto-generated method stub
-                    calendar.set(Calendar.YEAR, year);
-                    calendar.set(Calendar.MONTH, monthOfYear);
-                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                    dateFormat();
-                }
-
-
-            };
-
-
-            private void dateFormat() {
-                String myFormat = "dd-MMM-yyyy"; //In which you need put here
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-                txtDate.setText(sdf.format(calendar.getTime()));
-            }
-
-
-//            public void ResultActivity(View v) {
-//
-//                startActivity(new Intent(MainActivity.this, ResultActivity.class));
-//
-//
-//            }
         });
-    }
 
-    public void RadioAction()
-    {
-        rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        rgGENDER.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-
-                if(checkedId==R.id.rbMale)
-                {
-                    Radio = rbMale.getText().toString();
-                    Toast.makeText(getApplicationContext(),"Male",Toast.LENGTH_SHORT).show();
-                    rbMale.setSelected(true);
-                }
-                else if(checkedId==R.id.rbFemale)
-                {
-
-                    Radio = rbFMale.getText().toString();
-                    Toast.makeText(getApplicationContext(),"Female",Toast.LENGTH_SHORT).show();
-                    rbFMale.setSelected(true);
-                    //rbFMale.setText("Female!");
-                }
-                else if(checkedId==R.id.rbOthers)
-                {
-
-                    Radio = rbOthers.getText().toString();
-                    Toast.makeText(getApplicationContext(),"Others",Toast.LENGTH_SHORT).show();
-                    rbOthers.setSelected(true);
-                    // rbOthers.setText("Others!");
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.rbMale){
+                    Radio = rbMALE.getText().toString();
+                }else if(checkedId == R.id.rbFemale){
+                    Radio = rbFEMALE.getText().toString();
+                }else {
+                    Radio = rbOTHER.getText().toString();
                 }
             }
+
         });
-    }
-    public void FinalResult()
-    {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-
-            {
-
-
-                CRACustomer cra = new CRACustomer(sin.getText().toString(),Age.getText().toString(),fname.getText().toString(), lname.getText().toString(),
-                        rgGender.toString(), totalIncome.getText().toString());
-
+            public void onClick(View v) {
+                Double grossIncome = Double.parseDouble(Total.getText().toString());
+                Double rrsp = Double.parseDouble(RRSPCont.getText().toString());
+                cra = new CRACustomer(sin_no.getText().toString(),
+                        first.getText().toString(),
+                        last.getText().toString(),
+                        Radio, grossIncome, rrsp);
                 Intent mIntent = new Intent(MainActivity.this, ResultActivity.class);
                 mIntent.putExtra("CRACustomer", cra);
-//                mIntent.putExtra("gender", radio);
                 startActivity(mIntent);
-
             }
         });
+
+    };
+    private void dateFormat() {
+        String myFormat = "dd-MMM-yyyy"; //In which you need put here
+        java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        txtDOB.setText(sdf.format(calendar.getTime()));
     }
+    private  void curr_date(){
+
+
+        String todayDateFormat = "EEE, MMM d, yyyy";
+        java.text.SimpleDateFormat td = new SimpleDateFormat(todayDateFormat, Locale.CANADA);
+        filingdate.setText(td.format(calendar.getTime()));
+
+    }
+    public  void checkedButton(View view){
+        int radioId = rgGENDER.getCheckedRadioButtonId();
+        rgGENDER.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.rbMale){
+                    Radio = rbMALE.getText().toString();
+                }else if(checkedId == R.id.rbFemale){
+                    Radio = rbFEMALE.getText().toString();
+                }else {
+                    Radio = rbOTHER.getText().toString();
+                }
+            }
+        });
+        rbgender = findViewById(radioId);
+        txtgender.setText(Radio);
+        Toast.makeText(this, "Gender:" + rbgender.getText(), Toast.LENGTH_SHORT).show();
+    }
+
 
 }
 
