@@ -47,15 +47,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Enter SIN NUMBER"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textStyle="bold"
+                />
 
-            <EditText
-                android:id="@+id/txtFName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Enter FIRST NAME" />
+
 
             <EditText
                 android:id="@+id/txtLName"
@@ -63,7 +59,53 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Enter LAST NAME" />
+                android:hint="Enter LAST NAME"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/txtFName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Enter FIRST NAME"
+                android:textStyle="bold"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:text="Gender"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/rgGENDER"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:textStyle="bold">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:text="MALE"
+                    android:textStyle="bold"/>
+
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp"
+                    android:text="FEMALE"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/rbOthers"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:text="OTHERS"
+                    android:textStyle="bold"/>
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/txtDOB"
@@ -75,50 +117,23 @@
                 android:textIsSelectable="false"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:text="Gender" />
-
-            <RadioGroup
-                android:id="@+id/rgGENDER"
-                android:layout_width="match_parent"
-                android:layout_height="95dp">
-
-                <RadioButton
-                    android:id="@+id/rbMale"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    android:text="MALE" />
-
-                <RadioButton
-                    android:id="@+id/rbFemale"
-                    android:layout_width="match_parent"
-                    android:layout_height="27dp"
-                    android:text="FEMALE" />
-
-                <RadioButton
-                    android:id="@+id/rbOthers"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:text="OTHERS" />
-            </RadioGroup>
-
-
             <EditText
                 android:id="@+id/txtAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="AGE"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textStyle="bold"
+                />
+
 
             <EditText
                 android:id="@+id/txttotal_inc"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="TOTAL INCOME"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:textStyle="bold"/>
 
 
             <Button
@@ -126,7 +141,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/calculate_tax"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
         </LinearLayout>
     </ScrollView>
