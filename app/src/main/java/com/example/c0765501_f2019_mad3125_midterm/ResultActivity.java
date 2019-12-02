@@ -119,7 +119,7 @@ public class ResultActivity extends AppCompatActivity {
 
         if(Tot_taxInc < 12069.00){
             fed_Tax = 0;
-           
+
         }else{
             fed_Tax = Tot_taxInc - 1;
         }
