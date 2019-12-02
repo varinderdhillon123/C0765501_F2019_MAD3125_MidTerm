@@ -32,8 +32,11 @@
                 android:fontFamily="monospace"
                 android:inputType="textPersonName"
                 android:text="INCOME TAX CALCULATOR"
+                android:background="#00BCD4"
                 android:textAlignment="center"
+                android:textSize="26sp"
                 android:textStyle="bold"
+                app:fontFamily="@font/alfa_slab_one"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,8 +47,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Enter SIN NUMBER"
-                android:inputType="number" />
+                android:hint="Person SIN NUMBER"
+                android:inputType="number"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/txtFName"
@@ -53,7 +58,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Enter FIRST NAME" />
+                android:hint="Person FIRST NAME"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/txtLName"
@@ -61,20 +68,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Enter LAST NAME" />
+                android:hint="Person LAST NAME"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/txtDOB"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:inputType="date"
-                android:text="Select DOB" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:text="Gender" />
+                android:text="Person GENDER"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <RadioGroup
                 android:id="@+id/rgGENDER"
@@ -100,41 +104,50 @@
                     android:text="OTHERS" />
             </RadioGroup>
 
+            <TextView
+                android:id="@+id/txtDOB"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:inputType="date"
+                android:text="Person DOB"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/txtAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="AGE"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/txtDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:inputType="date"
-                android:text="Tax Filling Date" />
+                android:hint="Person AGE"
+                android:inputType="number"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/txttotal_inc"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:hint="TOTAL INCOME"
-                android:inputType="numberDecimal" />
+                android:hint="Person TOTAL INCOME"
+                android:inputType="numberDecimal"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtRRSP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="RRSP Contributed" />
+                android:hint="Person RRSP CONTRIBUTION"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btn_calc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/calculate_tax" />
+                android:text="TAX CALCULATION"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
