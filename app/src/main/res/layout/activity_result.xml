@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B3E5FC"
     tools:context=".ResultActivity">
 
 
@@ -15,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,11 +39,12 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:hint="SIN"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/txtfullName"
                 android:layout_width="match_parent"
@@ -51,12 +53,14 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:hint="Full name"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtsin"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtage"
+                app:layout_constraintTop_toBottomOf="@+id/txtsin" />
+
+            <TextView
+                android:id="@+id/txtage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -64,8 +68,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Age"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtgender"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtgender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -73,8 +79,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Gender"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtgrossIncome"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtgrossIncome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -82,8 +90,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Gross Income"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtfilingDate"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtfilingDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -91,8 +101,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="TAX Filing Date"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtcpp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtcpp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -100,8 +112,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="CPP contribution in Year"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtempIns"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtempIns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -109,8 +123,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Employement Insurance"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtRRSPCont"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtRRSPCont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -118,8 +134,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="RRSP contributed"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
-            <TextView android:id="@+id/txtRRSPFWD"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtRRSPFWD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -127,9 +145,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="carry forward RRSP"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <TextView android:id="@+id/txttaxableInc"
+            <TextView
+                android:id="@+id/txttaxableInc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -137,9 +156,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Total Taxable Income"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <TextView android:id="@+id/txtfederalTax"
+            <TextView
+                android:id="@+id/txtfederalTax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -147,9 +167,10 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Federal Tax"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <TextView android:id="@+id/txtprovincialTax"
+            <TextView
+                android:id="@+id/txtprovincialTax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -157,7 +178,7 @@
                 android:layout_marginEnd="16dp"
                 android:hint="Provincial Tax"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txttaxPayed"
@@ -169,7 +190,6 @@
                 android:hint="Total Tax Payed"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
 
 
         </LinearLayout>
