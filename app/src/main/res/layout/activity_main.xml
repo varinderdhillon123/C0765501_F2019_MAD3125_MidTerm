@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B3E5FC"
     tools:context=".MainActivity">
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="433dp"
+        android:layout_height="792dp"
+        android:background="#00706161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,11 +30,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
+                android:background="#00BCD4"
                 android:ems="10"
                 android:fontFamily="monospace"
                 android:inputType="textPersonName"
                 android:text="INCOME TAX CALCULATOR"
-                android:background="#00BCD4"
                 android:textAlignment="center"
                 android:textSize="26sp"
                 android:textStyle="bold"
@@ -50,7 +52,7 @@
                 android:hint="Person SIN NUMBER"
                 android:inputType="number"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txtFName"
@@ -60,7 +62,7 @@
                 android:layout_marginBottom="8dp"
                 android:hint="Person FIRST NAME"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txtLName"
@@ -70,7 +72,7 @@
                 android:layout_marginBottom="8dp"
                 android:hint="Person LAST NAME"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
             <TextView
@@ -78,7 +80,7 @@
                 android:layout_height="32dp"
                 android:text="Person GENDER"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/rgGENDER"
@@ -112,7 +114,7 @@
                 android:inputType="date"
                 android:text="Person DOB"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txtAge"
@@ -121,12 +123,12 @@
                 android:hint="Person AGE"
                 android:inputType="number"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txttotal_inc"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="66dp"
                 android:hint="Person TOTAL INCOME"
                 android:inputType="numberDecimal"
                 android:textSize="24sp"
@@ -139,7 +141,7 @@
                 android:layout_marginTop="8dp"
                 android:hint="Person RRSP CONTRIBUTION"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_calc"
