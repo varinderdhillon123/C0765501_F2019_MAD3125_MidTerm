@@ -10,11 +10,22 @@ import java.util.Date;
 
 public class CRACustomer implements Parcelable {
 
-    String sno, fName, lName, Fullnm, Gender;
-    Date dob, FilingDate;
+    String sno;
+    String fName;
+    String lName;
+    String Fullnm;
+    String Gender;
+    Date dob;
+    Date FilingDate;
     int Age;
-    double Total, Fedtax, Provtax, EmpIns;
-    double RRSPcont, RRSPFwd, taxable_inc, paid_tax;
+    double Total;
+    double Fedtax;
+    double Provtax;
+    double EmpIns;
+    double RRSPcont;
+    double RRSPFwd;
+    double taxable_inc;
+    double paid_tax;
 
     public CRACustomer(String sno, String fName,
                        String lName, String Gender, double Total, double RRSPcont) {
