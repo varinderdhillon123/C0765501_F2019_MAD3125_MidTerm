@@ -10,11 +10,21 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
     CRACustomer cust;
-    TextView sin, fullName, gender, calc_total,
-            calc_taxFilingDate, calc_federalTax, calc_provincialTax, calc_cpp,
-            calc_EmpIns, calc_RRSP, calc_CfRRSP,
-            calc_TaxableIncome, calc_TaxPaid;
-    double CPP = 0, ei = 0;  double RRSP = 0, RRSPCRY_FWD = 0, TAX_INCOME, FTAX,
+    TextView sin;
+    TextView fullName;
+    TextView gender;
+    TextView calc_total;
+    TextView calc_taxFilingDate;
+    TextView calc_federalTax;
+    TextView calc_provincialTax;
+    TextView calc_cpp;
+    TextView calc_EmpIns;
+    TextView calc_RRSP;
+    TextView calc_CfRRSP;
+    TextView calc_TaxableIncome;
+    TextView calc_TaxPaid;
+    double CPP = 0, ei = 0;
+    double RRSP = 0, RRSPCRY_FWD = 0, TAX_INCOME, FTAX,
             PTAX, TOT_TAX;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
