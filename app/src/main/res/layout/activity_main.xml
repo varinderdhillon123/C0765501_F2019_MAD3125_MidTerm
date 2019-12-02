@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +10,6 @@
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="729dp"
-        android:background="#003A3434"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,14 +28,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:background="#00BCD4"
                 android:ems="10"
                 android:fontFamily="monospace"
                 android:inputType="textPersonName"
                 android:text="INCOME TAX CALCULATOR"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                app:fontFamily="@font/abril_fatface"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,11 +45,15 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Enter SIN NUMBER"
-                android:inputType="number"
-                android:textStyle="bold"
-                />
+                android:inputType="number" />
 
-
+            <EditText
+                android:id="@+id/txtFName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Enter FIRST NAME" />
 
             <EditText
                 android:id="@+id/txtLName"
@@ -59,53 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Enter LAST NAME"
-                android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/txtFName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Enter FIRST NAME"
-                android:textStyle="bold"/>
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:text="Gender"
-                android:textStyle="bold"/>
-
-            <RadioGroup
-                android:id="@+id/rgGENDER"
-                android:layout_width="match_parent"
-                android:layout_height="95dp"
-                android:textStyle="bold">
-
-                <RadioButton
-                    android:id="@+id/rbMale"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    android:text="MALE"
-                    android:textStyle="bold"/>
-
-
-                <RadioButton
-                    android:id="@+id/rbFemale"
-                    android:layout_width="match_parent"
-                    android:layout_height="27dp"
-                    android:text="FEMALE"
-                    android:textStyle="bold"/>
-
-                <RadioButton
-                    android:id="@+id/rbOthers"
-                    android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:text="OTHERS"
-                    android:textStyle="bold"/>
-            </RadioGroup>
+                android:hint="Enter LAST NAME" />
 
             <TextView
                 android:id="@+id/txtDOB"
@@ -113,36 +69,72 @@
                 android:layout_height="32dp"
                 android:layout_marginTop="8dp"
                 android:inputType="date"
-                android:text="DOB"
-                android:textIsSelectable="false"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Select DOB" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:text="Gender" />
+
+            <RadioGroup
+                android:id="@+id/rgGENDER"
+                android:layout_width="match_parent"
+                android:layout_height="95dp">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:text="MALE" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp"
+                    android:text="FEMALE" />
+
+                <RadioButton
+                    android:id="@+id/rbOthers"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:text="OTHERS" />
+            </RadioGroup>
+
+
             <EditText
                 android:id="@+id/txtAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="AGE"
-                android:inputType="number"
-                android:textStyle="bold"
-                />
+                android:inputType="number" />
 
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:inputType="date"
+                android:text="Tax Filling Date" />
 
             <EditText
                 android:id="@+id/txttotal_inc"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="TOTAL INCOME"
-                android:inputType="numberDecimal"
-                android:textStyle="bold"/>
+                android:inputType="numberDecimal" />
 
+            <EditText
+                android:id="@+id/edtRRSP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="RRSP Contributed" />
 
             <Button
                 android:id="@+id/btn_calc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/calculate_tax"
-                android:textStyle="bold"
-                />
+                android:text="@string/calculate_tax" />
 
         </LinearLayout>
     </ScrollView>
