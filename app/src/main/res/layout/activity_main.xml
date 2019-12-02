@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="729dp"
+        android:background="#003A3434"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +71,10 @@
                 android:layout_height="32dp"
                 android:layout_marginTop="8dp"
                 android:inputType="date"
-                android:text="Select DOB" />
+                android:text="DOB"
+                android:textIsSelectable="false"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,7 +125,8 @@
                 android:id="@+id/btn_calc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/calculate_tax" />
+                android:text="@string/calculate_tax"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
