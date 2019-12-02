@@ -85,18 +85,17 @@ public class ResultActivity extends AppCompatActivity {
         }
         calc_CfRRSP.setText("RRSP Carry forward= \t"+ RRSPCRY_FWD);
         //taxable income
-        TAX_INCOME = (CPP - ei - RRSP);
-        //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
+        TAX_INCOME =  Gross_inc- (CPP - ei - RRSP);
         calc_TaxableIncome.setText("Taxable income=\t" + (double) TAX_INCOME);
         //federal tax
-        double calFederal = calcFedralTax();
-        calc_federalTax.setText("Federal Tax: \t" + calFederal);
+        double calFederal = calcFederalTax();
+        calc_federalTax.setText("Fed Tax= \t" + calFederal);
         // Provincial Tax
         double calProvincial = calcProvincialTax();
-        calc_provincialTax.setText("Provincial Tax:\t" + calProvincial);
+        calc_provincialTax.setText("Prov Tax=\t" + calProvincial);
         // total tax paid
         double taxpaid = calTaxPaid();
-        calc_TaxPaid.setText("Total tax Paid:\t" + taxpaid);
+        calc_TaxPaid.setText("Total tax Paid=\t" + taxpaid);
 
 
 
@@ -119,21 +118,24 @@ public class ResultActivity extends AppCompatActivity {
     }
     public double calcCpp(){
         // calculate  cpp
-        if(cust.getGrossIncome() > 57000.00){
-            CPP = (57000.00 * (5.10 / 100));
+        if(cust.getGrossIncome() > 57400.00){
+            CPP = (57400.00 * (5.10 / 100));
         } else {
             CPP = (cust.getGrossIncome() * (5.10 / 100));
         }
         return CPP;
     }
-    public double calcFedralTax(){
+    public double calcFederalTax(){
         //calculate federal tax
-
-        if(TAX_INCOME < 12069.00){
+        double tax = TAX_INCOME;
+        if(tax <= 12069.00){
             FTAX = 0;
-            //taxableIncome = taxableIncome - 12069.00;
-        }else{
-            FTAX = TAX_INCOME - 1;
+            tax = TAX_INCOME - 12069.00;
+        }
+        if(tax >= 12069.01)
+            {
+               FTAX = (tax * 0.15);
+             tax = tax -35561;
         }
         return FTAX;
     }
