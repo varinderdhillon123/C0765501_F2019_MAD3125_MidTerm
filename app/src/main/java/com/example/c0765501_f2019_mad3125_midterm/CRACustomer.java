@@ -2,44 +2,127 @@ package com.example.c0765501_f2019_mad3125_midterm;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Editable;
+import android.widget.EditText;
+
+import java.util.Date;
 
 public class CRACustomer implements Parcelable
 {
+    String sinNumber, firstName, lastName, fullName, gender;
+    Date birthDate,filingDate;
+    int age;
+    double grossIncome, federalTax, provicialTax, empInsurance;
+    double rrspContri, rrspCarryForward, taxableIncome, taxPaid;
 
-
-    private String sin_no,age;
-    String First,Last;
-    String FullName;
-    String Gender;
-    String Total;
-
-
-    public String getGender()
+    public CRACustomer(String sinNumber, String firstName,
+                       String lastName, String gender, double grossIncome, double rrspContri)
     {
-        return Gender;
+        this.sinNumber = sinNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fullName = fullName;
+        this.gender = gender;
+        this.grossIncome = grossIncome;
+        this.rrspContri = rrspContri;
     }
 
-    public void setGender(String gender)
-    {
-        this.Gender = Gender;
+
+    public String getSinNumber() {
+        return sinNumber;
     }
 
-    public CRACustomer(String sin_no, String age, String first,String last, String gender, String Total)
-    {
-        this.sin_no = sin_no;
-        this.age = age;
-        this.Total = Total;
-        this.First = first;
-        this.Last = last;
-        this.Gender = gender;
-
-
+    public String getFirstName() {
+        return firstName;
     }
 
-    public static final Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFullName() {
+        // eg: KAUR, Charan
+        return lastName.toUpperCase() + ", " +
+                firstName.substring(0,1).toUpperCase() + firstName.substring(1);
+    }
+    public String getGender(){
+        return  gender;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Date getFilingDate() {
+        return filingDate;
+    }
+
+    public double getGrossIncome() {
+        return grossIncome;
+    }
+
+    public double getEmpInsurance() {
+        return empInsurance;
+    }
+
+    public double getRrspContri() {
+        return rrspContri;
+    }
+
+    public double getRrspCarryForward() {
+        return rrspCarryForward;
+    }
+
+    public double getTaxableIncome() {
+        return taxableIncome;
+    }
+
+    public double getTaxPaid() {
+        return taxPaid;
+    }
+
+    public double getFederalTax() {
+        return federalTax;
+    }
+
+    public double getProvicialTax() {
+        return provicialTax;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(sinNumber);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(fullName);
+        dest.writeString(gender);
+        dest.writeDouble(grossIncome);
+        dest.writeDouble(rrspContri);
+
+    }
+    public CRACustomer(Parcel parcel){
+        sinNumber = parcel.readString();
+        firstName = parcel.readString();
+        lastName = parcel.readString();
+        fullName = parcel.readString();
+        gender = parcel.readString();
+        grossIncome = parcel.readDouble();
+        rrspContri = parcel.readDouble();
+
+    }
+    public  static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
         @Override
-        public CRACustomer createFromParcel(Parcel in) {
-            return new CRACustomer(in);
+        public CRACustomer createFromParcel(Parcel parcel) {
+            return new CRACustomer(parcel);
         }
 
         @Override
@@ -48,96 +131,5 @@ public class CRACustomer implements Parcelable
         }
     };
 
-    public String getLast()
-    {
-        return Last;
 
-    }
-
-    public void setLast(String Last)
-    {
-        this.Last = Last;
-    }
-
-
-
-    public String getSin_no()
-    {
-        return sin_no;
-    }
-
-    public void setSin_no(String sin_no)
-    {
-        this.sin_no = sin_no;
-    }
-
-    public String getAge()
-    {
-        return age;
-    }
-
-    public void setAge(String age)
-    {
-        this.age = age;
-    }
-
-    public String getTotal()
-     {
-        return Total;
-    }
-
-    public void setTotal(String Total)
-    {
-        this.Total = Total;
-    }
-
-    public String getFullName()
-    {
-        return Last.toUpperCase() + " " + First;
-    }
-
-    public void setFullName(String Fullname)
-    {
-        this.FullName = Fullname;
-    }
-
-    public String getFirst()
-    {
-        return First;
-    }
-
-    public void setFirst(String First)
-    {
-        this.First = First;
-    }
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(First);
-        dest.writeString(Last);
-        dest.writeString(FullName);
-        dest.writeString(sin_no);
-        dest.writeString(age);
-        dest.writeString(Total);
-
-        dest.writeString(Gender);
-
-
-    }
-
-    public CRACustomer(Parcel parcel)
-    {
-        First = parcel.readString();
-        Last = parcel.readString();
-        FullName = parcel.readString();
-        sin_no = parcel.readString();
-        age = parcel.readString();
-        Total = parcel.readString();
-        Gender = parcel.readString();
-
-    }
 }
