@@ -7,17 +7,15 @@ import android.widget.EditText;
 
 import java.util.Date;
 
-public class CRACustomer implements Parcelable
-{
+public class CRACustomer implements Parcelable {
     String sinNumber, firstName, lastName, fullName, gender;
-    Date birthDate,filingDate;
+    Date birthDate, filingDate;
     int age;
     double grossIncome, federalTax, provicialTax, empInsurance;
     double rrspContri, rrspCarryForward, taxableIncome, taxPaid;
 
     public CRACustomer(String sinNumber, String firstName,
-                       String lastName, String gender, double grossIncome, double rrspContri)
-    {
+                       String lastName, String gender, double grossIncome, double rrspContri) {
         this.sinNumber = sinNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,12 +39,13 @@ public class CRACustomer implements Parcelable
     }
 
     public String getFullName() {
-        // eg: KAUR, Charan
+        
         return lastName.toUpperCase() + ", " +
-                firstName.substring(0,1).toUpperCase() + firstName.substring(1);
+                firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
     }
-    public String getGender(){
-        return  gender;
+
+    public String getGender() {
+        return gender;
     }
 
     public Date getBirthDate() {
@@ -109,7 +108,8 @@ public class CRACustomer implements Parcelable
         dest.writeDouble(rrspContri);
 
     }
-    public CRACustomer(Parcel parcel){
+
+    public CRACustomer(Parcel parcel) {
         sinNumber = parcel.readString();
         firstName = parcel.readString();
         lastName = parcel.readString();
@@ -119,7 +119,8 @@ public class CRACustomer implements Parcelable
         rrspContri = parcel.readDouble();
 
     }
-    public  static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
+
+    public static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
         @Override
         public CRACustomer createFromParcel(Parcel parcel) {
             return new CRACustomer(parcel);
@@ -130,6 +131,4 @@ public class CRACustomer implements Parcelable
             return new CRACustomer[size];
         }
     };
-
-
 }
