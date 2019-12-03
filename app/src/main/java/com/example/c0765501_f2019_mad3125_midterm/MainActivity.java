@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText first;
     private EditText last;
     private EditText Total;
-    private TextView Age;
+    private EditText Age;
     private TextView RRSPCont;
     private TextView Fullname;
     private TextView txtgender;
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
@@ -103,15 +104,59 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double grossIncome = Double.parseDouble(Total.getText().toString());
-                Double rrsp = Double.parseDouble(RRSPCont.getText().toString());
-                cra = new CRACustomer(sin_no.getText().toString(),
-                        first.getText().toString(),
-                        last.getText().toString(),
-                        Radio, grossIncome, rrsp);
-                Intent mIntent = new Intent(MainActivity.this, ResultActivity.class);
-                mIntent.putExtra("CRACustomer", cra);
-                startActivity(mIntent);
+                if (sin_no.getText().toString().length() != 11 &&
+                        first.getText().toString().length() == 0 &&
+                        last.getText().toString().length() == 0 &&
+                        Age.getText().toString().length()==0&&
+                        txtDOB.getText().toString().length() == 0 &&
+                        Total.getText().toString().length() == 0 &&
+                        RRSPCont.getText().toString().length() == 0
+                ) {
+                    sin_no.setError("Sin Incorrect");
+                    first.setError("This Field Cannot Be Empty");
+                    last.setError("This Field Cannot Be Empty");
+                    Age.setError("This Field cannot be Empty");
+                    txtDOB.setError("This Field Cannot Be Empty");
+                    Total.setError("This Field Cannot Be Empty");
+                    RRSPCont.setError("This Field Cannot Be Empty");
+                }
+                if (sin_no.getText().toString().length() != 11) {
+                    sin_no.setError("Sin Incorrect");
+                }
+                if (first.getText().toString().length() == 0) {
+                    first.setError("This Field Cannot Be Empty");
+                }
+
+
+                if (last.getText().toString().length() == 0) {
+                    last.setError("This Field Cannot Be Empty");
+                }
+                if (txtDOB.getText().toString().length() == 0) {
+                    txtDOB.setError("This Field Cannot Be Empty");
+                }
+//                if (Age < 18) {
+//                    txtDOB.setError("Not Eligible For filing tax");
+//                    txtDOB.setTextColor(getResources().getColor(R.color.colorAccent));
+//                }
+                if (Total.getText().toString().length() == 0) {
+                    Total.setError("This Field Cannot Be Empty");
+                }
+                if (RRSPCont.getText().toString().length() == 0) {
+                    RRSPCont.setError("This Field Cannot Be Empty");
+                } else {
+
+
+                    Double grossIncome = Double.parseDouble(Total.getText().toString());
+                    Double rrsp = Double.parseDouble(RRSPCont.getText().toString());
+                    cra = new CRACustomer(sin_no.getText().toString(),
+                            first.getText().toString(),
+                            Age.getText().toString(),
+                            last.getText().toString(),
+                            Radio, grossIncome, rrsp);
+                    Intent mIntent = new Intent(MainActivity.this, ResultActivity.class);
+                    mIntent.putExtra("CRACustomer", cra);
+                    startActivity(mIntent);
+                }
             }
         });
 

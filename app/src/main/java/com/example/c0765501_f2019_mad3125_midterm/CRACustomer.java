@@ -17,7 +17,7 @@ public class CRACustomer implements Parcelable {
     String Gender;
     Date dob;
     Date FilingDate;
-    int Age;
+    String age;
     double Total;
     double Fedtax;
     double Provtax;
@@ -27,12 +27,13 @@ public class CRACustomer implements Parcelable {
     double taxable_inc;
     double paid_tax;
 
-    public CRACustomer(String sno, String fName,
+    public CRACustomer(String sno, String fName, String age,
                        String lName, String Gender, double Total, double RRSPcont) {
         this.sno = sno;
         this.fName = fName;
         this.lName = lName;
         this.Fullnm = Fullnm ;
+        this.age = age;
         this.Gender = Gender;
         this.Total = Total;
         this.RRSPcont = RRSPcont;
@@ -66,8 +67,8 @@ public class CRACustomer implements Parcelable {
         return dob;
     }
 
-    public int getAge() {
-        return Age;
+    public String getAge() {
+        return age;
     }
 
     public Date getFilingDate() {
@@ -117,6 +118,7 @@ public class CRACustomer implements Parcelable {
         dest.writeString(fName);
         dest.writeString(lName);
         dest.writeString(Fullnm);
+        dest.writeString(age);
         dest.writeString(Gender);
         dest.writeDouble(Total);
         dest.writeDouble(RRSPcont);
@@ -128,6 +130,7 @@ public class CRACustomer implements Parcelable {
         fName = parcel.readString();
         lName = parcel.readString();
         Fullnm = parcel.readString();
+        age = parcel.readString();
         Gender = parcel.readString();
         Total = parcel.readDouble();
         RRSPcont = parcel.readDouble();
