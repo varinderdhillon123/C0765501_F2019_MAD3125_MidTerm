@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 if (sin_no.getText().toString().length() != 11 &&
                         first.getText().toString().length() == 0 &&
                         last.getText().toString().length() == 0 &&
