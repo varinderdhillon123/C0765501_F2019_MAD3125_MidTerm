@@ -14,9 +14,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText first;
     private EditText last;
     private EditText Total;
+    private TextView Age;
     private TextView RRSPCont;
     private TextView Fullname;
     private TextView txtgender;
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.btn_calc);
         txtDOB = findViewById(R.id.txtDOB);
         RRSPCont = findViewById(R.id.edtRRSP);
+        Age=findViewById(R.id.txtAge);
 
 
 
@@ -113,10 +116,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
     };
-    private void dateFormat() {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String dateFormat() {
         String myFormat = "dd-MMM-yyyy"; //In which you need put here
         java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         txtDOB.setText(sdf.format(calendar.getTime()));
+        LocalDate l = LocalDate.of(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        LocalDate now = LocalDate.now(); //gets localDate
+        Period diff = Period.between(l, now); //difference between the dates is calculated
+        System.out.println(diff.getYears() + "years" + diff.getMonths() + "months" + diff.getDays() + "days");
+        String n1=String.valueOf(diff.getYears());
+        String n2=String.valueOf(diff.getMonths());
+        String n3=String.valueOf(diff.getDays());
+        String age="Age: "+n1+"Years"+n2+"Months"+n3+"Days";
+        Age.setText(age);
+        return  n1;
+
     }
 
     public  void checkedButton(View view) {
