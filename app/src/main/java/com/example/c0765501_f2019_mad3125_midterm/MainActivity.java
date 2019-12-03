@@ -128,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                if (last.getText().toString().length() == 0) {
+                if (last.getText().toString().length() == 0)
+                {
                     last.setError("This Field Cannot Be Empty");
                 }
                 if (txtDOB.getText().toString().length() == 0) {
