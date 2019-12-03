@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 dateFormat();
             }
         };
+        
         txtDOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
