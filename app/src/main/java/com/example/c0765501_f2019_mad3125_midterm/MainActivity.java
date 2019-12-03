@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                 {
                     sin_no.setError("Sin Incorrect");
                 }
-                if (first.getText().toString().length() == 0) {
+                if (first.getText().toString().length() == 0)
+                {
                     first.setError("This Field Cannot Be Empty");
                 }
 
