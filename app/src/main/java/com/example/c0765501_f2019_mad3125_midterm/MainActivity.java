@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         sin_no = findViewById(R.id.sin_no);
         first = findViewById(R.id.txtFName);
         last = findViewById(R.id.txtLName);
