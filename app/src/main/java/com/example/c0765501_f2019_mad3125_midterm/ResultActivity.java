@@ -76,7 +76,7 @@ public class ResultActivity extends AppCompatActivity {
         calc_EmpIns.setText("Employeement Insurance= \t" + ei);
         // calculate RRSP
         RRSP = cust.getRrspContri();
-        double maxRRSP = (cust.getGrossIncome() * (18 /100));
+        double maxRRSP = (Gross_inc * 0.18);
         if(RRSP > maxRRSP ){
             RRSPCRY_FWD = RRSP - maxRRSP;
             RRSP = maxRRSP;
