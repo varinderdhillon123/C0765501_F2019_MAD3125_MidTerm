@@ -125,7 +125,7 @@ public class CRACustomer implements Parcelable {
 
     }
 
-    public CRACustomer(Parcel parcel) {
+     public CRACustomer(Parcel parcel) {
         sno = parcel.readString();
         fName = parcel.readString();
         lName = parcel.readString();
