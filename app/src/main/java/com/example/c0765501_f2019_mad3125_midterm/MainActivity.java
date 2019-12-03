@@ -113,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
                         txtDOB.getText().toString().length() == 0 &&
                         Total.getText().toString().length() == 0 &&
                         RRSPCont.getText().toString().length() == 0
-                ) {
+                )
+                {
                     sin_no.setError("Sin Incorrect");
                     first.setError("This Field Cannot Be Empty");
                     last.setError("This Field Cannot Be Empty");
