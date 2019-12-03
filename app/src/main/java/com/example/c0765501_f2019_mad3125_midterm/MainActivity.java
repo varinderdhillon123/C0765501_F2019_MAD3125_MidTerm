@@ -120,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
                     Total.setError("This Field Cannot Be Empty");
                     RRSPCont.setError("This Field Cannot Be Empty");
                 }
-                if (sin_no.getText().toString().length() != 11) {
+                if (sin_no.getText().toString().length() != 11)
+                {
                     sin_no.setError("Sin Incorrect");
                 }
                 if (first.getText().toString().length() == 0) {
