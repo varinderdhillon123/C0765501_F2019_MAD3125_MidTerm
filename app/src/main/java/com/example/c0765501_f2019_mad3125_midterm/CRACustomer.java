@@ -135,6 +135,7 @@ public class CRACustomer implements Parcelable {
     }
 
 
+
     public static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
         @Override
         public CRACustomer createFromParcel(Parcel parcel) {
