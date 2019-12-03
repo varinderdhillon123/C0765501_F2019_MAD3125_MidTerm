@@ -144,7 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 if (RRSPCont.getText().toString().length() == 0) {
                     RRSPCont.setError("This Field Cannot Be Empty");
                 }
-                else {
+                else
+                    {
 
 
                     Double grossIncome = Double.parseDouble(Total.getText().toString());
