@@ -132,7 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 {
                     last.setError("This Field Cannot Be Empty");
                 }
-                if (txtDOB.getText().toString().length() == 0) {
+                if (txtDOB.getText().toString().length() == 0)
+                {
                     txtDOB.setError("This Field Cannot Be Empty");
                 }
 //                if (Age < 18) {
